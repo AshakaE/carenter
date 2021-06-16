@@ -1,11 +1,14 @@
+import axios from 'axios';
+
 const requestOptions = {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
 };
-function login(name, password) {
-  return fetch(
-    `https://carenter.herokuapp.com/login?name=${name}&password=${password}}`, requestOptions,
-  ).then((response) => response.json());
+async function login({ name, password }) {
+  const response = await axios.post(`https://car-rentapi.herokuapp.com/login?name=${name}&password=${password}`);
+  // 'https://car-rentapi.herokuapp.com/login?', { name, password },
+  // .catch((error) => console.log(error));
+  return response;
 }
 function register(name, password, cpassword) {
   return fetch(

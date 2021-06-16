@@ -20,6 +20,16 @@ const Home = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // if (isMember) {
+    const response = await login({ name, password });
+    // } else {
+    //   const response = await login({ name, password, cpassword });
+    // }
+    if (response) {
+      console.log(response);
+    } else {
+      // show msg
+    }
   };
   return (
     <>
