@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { urlBookings } from './getAuth';
+import { urlBookings } from '../assets/getAuth';
 
 const Bookings = () => {
   const one = 1; //eslint-disable-line

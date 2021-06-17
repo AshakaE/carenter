@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 // import PropTypes from 'prop-types';
 // import { connect } from 'react-redux';
 // import { urlCars } from '../redux/actions';
-import { urlCars } from './getAuth';
+import { urlCars } from '../assets/getAuth';
 
 const Cars = () => {
   // const { cars } = props;

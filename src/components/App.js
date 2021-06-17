@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Bookings from './Bookings';
 import Cars from './Cars';
 import Home from './Home';
-import User from './User';
+import User from '../containers/User';
 
 const App = () => (
   <>
@@ -13,13 +13,13 @@ const App = () => (
           <Home />
         </Route>
         <Route path="/bookings">
-          <Bookings />
+          <BookingsCard />
         </Route>
         <Route path="/cars">
-          <Cars />
+          <CarsCard />
         </Route>
         <Route path="/user">
-          <User />
+          <UserCard />
         </Route>
       </Switch>
     </BrowserRouter>
