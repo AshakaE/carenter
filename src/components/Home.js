@@ -1,12 +1,13 @@
 import React from 'react';
-import { login, register } from './getAuth'; //eslint-disable-line
+import { useHistory } from 'react-router-dom';
+import { login, register } from './getAuth';
 
 const Home = () => {
-  const one = 1; //eslint-disable-line
+  const history = useHistory();
   const [name, setName] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [cpassword, setCpassword] = React.useState('default');
-  const [isMember, setIsMember] = React.useState(true); //eslint-disable-line
+  const [isMember, setIsMember] = React.useState(true);
 
   const isEmpty = !name || !password || !cpassword;
 
@@ -16,21 +17,26 @@ const Home = () => {
       isMember ? setCpassword('default') : setCpassword(''); //eslint-disable-line
       return isMember;
     });
-  }; //eslint-disable-line
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // if (isMember) {
-    const response = await login({ name, password });
-    // } else {
-    //   const response = await login({ name, password, cpassword });
-    // }
+    let response;
+    if (isMember) {
+      response = await login({ name, password });
+    } else {
+      response = await register({ name, password, cpassword });
+    }
     if (response) {
-      console.log(response);
+      //
     } else {
       // show msg
     }
+    const token = response.data.auth_token;
+    localStorage.setItem('auth', token);
+    history.push('/cars');
   };
+
   return (
     <>
       <div>
@@ -75,17 +81,21 @@ const Home = () => {
                 </label>
               </div>
             )}
-            {isEmpty && (
-              <p>Please fill the inputs</p>
-            )}
+            {isEmpty && <p>Please fill the inputs</p>}
             {!isEmpty && (
               <div className="mt-3">
-                <input type="submit" value={isMember ? 'Log in' : 'Submit'} onClick={handleSubmit} />
+                <input
+                  type="submit"
+                  value={isMember ? 'Log in' : 'Submit'}
+                  onClick={handleSubmit}
+                />
               </div>
             )}
             <p>
               {isMember ? 'need to register' : 'already a member'}
-              <button type="button" onClick={toggleMember}>Click here</button>
+              <button type="button" onClick={toggleMember}>
+                Click here
+              </button>
             </p>
           </form>
         </div>
