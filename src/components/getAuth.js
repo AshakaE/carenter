@@ -25,6 +25,19 @@ async function urlCars() {
   );
   return response;
 }
+async function urlBookings() {
+  const response = await axios.get(
+    'https://car-rentapi.herokuapp.com/api/v1/bookings',
+    {
+      headers: {
+        Authorization: auth,
+      },
+    },
+  );
+  return response;
+}
 // const urlCars = () => ('https://car-rentapi.herokuapp.com/api/v1/cars');
 
-export { login, register, urlCars };
+export {
+  login, register, urlCars, urlBookings,
+};
