@@ -32,5 +32,6 @@ export const getCars = () => async function fn(dispatch) {
       },
     });
   const data = await response.data;
+  console.log(data);
   dispatch({ type: GET_CARS, payload: data });
 };
