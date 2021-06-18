@@ -1,19 +1,45 @@
 import React, { useEffect } from 'react';
-import { urlBookings } from '../assets/getAuth';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getBookings } from '../redux/actions';
+import BookingsCard from '../components/BookingsCard';
 
-const Bookings = () => {
-  const one = 1; //eslint-disable-line
+const Bookings = (props) => {
+  const { getBookings, bookings, loading } = props;
+
   useEffect(() => {
-    urlBookings().then((data) => {
-      const resp = data;
-      console.log(resp);
-    });
+    getBookings();
   }, []);
+
+  if (loading) {
+    return (
+      <div>
+        hello
+      </div>
+    );
+  }
+
   return (
-    <>
-      <div>Bookings</div>
-    </>
+    <div>
+      {Object.values(bookings).map((item) => (
+        <BookingsCard key={item.id} item={item} />
+      ))}
+    </div>
   );
 };
 
-export default Bookings;
+const mapStateToProps = ({
+  bookingState: { bookings, loading },
+}) => ({ loading, bookings });
+
+Bookings.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  bookings: PropTypes.arrayOf(PropTypes.object),
+  getBookings: PropTypes.func.isRequired,
+};
+
+Bookings.defaultProps = {
+  bookings: [],
+};
+
+export default connect(mapStateToProps, { getBookings })(Bookings);

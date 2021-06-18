@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { login, register } from './getAuth';
+import { login, register } from '../assets/getAuth';
 
 const Home = () => {
   const history = useHistory();
@@ -34,7 +34,7 @@ const Home = () => {
     }
     const token = response.data.auth_token;
     localStorage.setItem('auth', token);
-    history.push('/cars');
+    history.push('/bookings');
   };
 
   return (

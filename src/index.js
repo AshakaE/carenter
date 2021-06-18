@@ -7,11 +7,13 @@ import thunk from 'redux-thunk';
 import './index.css';
 import App from './components/App';
 import carsReducer from './redux/reducers/carsReducer';
+import bookingsReducer from './redux/reducers/bookingsReducer';
 
 const middleware = [thunk];
 const store = createStore(
   combineReducers({
     carState: carsReducer,
+    bookingState: bookingsReducer,
   }),
   composeWithDevTools(applyMiddleware(...middleware)),
 );

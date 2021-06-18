@@ -1,6 +1,7 @@
 import { SET_LOADING, GET_CARS } from '../actions';
 
 const defaultState = {
+  loading: false,
   cars: [],
 };
 

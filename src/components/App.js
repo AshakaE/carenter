@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Bookings from './Bookings';
-import Cars from './Cars';
+import Bookings from '../containers/Bookings';
+import Cars from '../containers/Cars';
 import Home from './Home';
-import User from '../containers/User';
+import UserCard from './UserCard';
 
 const App = () => (
   <>
@@ -13,10 +13,10 @@ const App = () => (
           <Home />
         </Route>
         <Route path="/bookings">
-          <BookingsCard />
+          <Bookings />
         </Route>
         <Route path="/cars">
-          <CarsCard />
+          <Cars />
         </Route>
         <Route path="/user">
           <UserCard />

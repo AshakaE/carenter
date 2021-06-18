@@ -1,38 +1,41 @@
 import React, { useEffect } from 'react';
-// import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
-// import { urlCars } from '../redux/actions';
-import { urlCars } from '../assets/getAuth';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getCars } from '../redux/actions';
+import CarsCard from '../components/CarsCard';
 
-const Cars = () => {
-  // const { cars } = props;
-  // console.log(cars);
+const Cars = (props) => {
+  const { getCars, cars, loading } = props;
 
   useEffect(() => {
-    urlCars().then((data) => {
-      const resp = data;
-      console.log(resp);
-    });
+    getCars();
   }, []);
 
+  if (loading) {
+    return <div>hello</div>;
+  }
+
   return (
-    <>
-      <div>Cars</div>
-    </>
+    <div>
+      {Object.values(cars).map((item) => (
+        <CarsCard key={item.id} item={item} />
+      ))}
+    </div>
   );
 };
 
-// const mapStateToProps = ({
-//   carsState: { cars },
-// }) => ({ cars });
+const mapStateToProps = ({
+  carState: { cars, loading },
+}) => ({ loading, cars });
 
-// Cars.propTypes = {
-//   cars: PropTypes.arrayOf(PropTypes.object),
-// };
+Cars.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  cars: PropTypes.arrayOf(PropTypes.object),
+  getCars: PropTypes.func.isRequired,
+};
 
-// Cars.defaultProps = {
-//   cars: [],
-// };
+Cars.defaultProps = {
+  cars: [],
+};
 
-// export default connect(mapStateToProps, { getCars })(Cars);
-export default Cars;
+export default connect(mapStateToProps, { getCars })(Cars);
