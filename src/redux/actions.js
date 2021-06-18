@@ -18,6 +18,7 @@ export const getBookings = () => async function fn(dispatch) {
       },
     });
   const data = await response.data;
+  console.log(data);
   dispatch({ type: GET_BOOKINGS, payload: data });
 };
 
