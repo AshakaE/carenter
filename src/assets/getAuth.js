@@ -16,6 +16,8 @@ const urlBookings = () => ('https://car-rentapi.herokuapp.com/api/v1/bookings');
 
 const urlCars = () => ('https://car-rentapi.herokuapp.com/api/v1/cars');
 
+const urlUser = () => ('https://car-rentapi.herokuapp.com/users');
+
 export {
-  login, register, urlCars, urlBookings,
+  login, register, urlCars, urlBookings, urlUser,
 };

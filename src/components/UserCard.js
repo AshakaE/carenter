@@ -1,12 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const UserCard = () => {
-  const one = 1; //eslint-disable-line
+const UserCard = (props) => {
+  const {
+    user,
+  } = props;
+  console.log(user);
   return (
     <>
-      <div>User card</div>
+      <div>{user}</div>
     </>
   );
+};
+
+UserCard.propTypes = {
+  user: PropTypes.string, // eslint-disable-line
+};
+
+UserCard.defaultProps = {
+  user: [],
 };
 
 export default UserCard;

@@ -8,11 +8,13 @@ import './index.css';
 import App from './components/App';
 import carsReducer from './redux/reducers/carsReducer';
 import bookingsReducer from './redux/reducers/bookingsReducer';
+import userReducer from './redux/reducers/userReducer';
 
 const middleware = [thunk];
 const store = createStore(
   combineReducers({
     carState: carsReducer,
+    userState: userReducer,
     bookingState: bookingsReducer,
   }),
   composeWithDevTools(applyMiddleware(...middleware)),

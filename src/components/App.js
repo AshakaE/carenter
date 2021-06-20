@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Bookings from '../containers/Bookings';
 import Cars from '../containers/Cars';
+import User from '../containers/User';
 import Home from './Home';
-import UserCard from './UserCard';
 
 const App = () => (
   <>
@@ -15,11 +15,11 @@ const App = () => (
         <Route path="/bookings">
           <Bookings />
         </Route>
-        <Route path="/cars">
+        <Route exact path="/cars">
           <Cars />
         </Route>
-        <Route path="/user">
-          <UserCard />
+        <Route exact path="/user">
+          <User />
         </Route>
       </Switch>
     </BrowserRouter>
