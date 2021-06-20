@@ -5,7 +5,6 @@ const UserCard = (props) => {
   const {
     user,
   } = props;
-  console.log(user);
   return (
     <>
       <div>{user}</div>

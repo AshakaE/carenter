@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUser } from '../redux/actions';
+// import { useParams } from 'react-router-dom';
 import UserCard from '../components/UserCard';
 
 const User = (props) => {
   const { loading, user, getUser } = props;
-
+  // let { user } = useParams();
   useEffect(() => {
     getUser();
   }, []);

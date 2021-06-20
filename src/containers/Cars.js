@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCars } from '../redux/actions';
 import CarsCard from '../components/CarsCard';
+// import BookingsForm from '../components/forms/BookingsForm';
 
 const Cars = (props) => {
   const { getCars, cars, loading } = props;
@@ -17,6 +18,7 @@ const Cars = (props) => {
 
   return (
     <div>
+      {/* <BookingsForm /> */}
       {Object.values(cars).map((item) => (
         <CarsCard key={item.id} item={item} />
       ))}

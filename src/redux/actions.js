@@ -47,6 +47,6 @@ export const getUser = () => async function fn(dispatch) {
       },
     });
   const data = await response.data;
-  // console.log(typeof data);
+  console.log(data);
   dispatch({ type: GET_USER, payload: data });
 };

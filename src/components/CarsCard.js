@@ -1,12 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import BookingsForm from './forms/BookingsForm';
 
 const CarsCard = (props) => {
+  const [values, setValues] = React.useState('');
+  const [isMember, setIsMember] = React.useState(true);
   const {
     item: {
-      name, model, year, imageUrl,
+      id, name, model, year, imageUrl,
     },
   } = props;
+
+  const toggleHidden = () => {
+    setIsMember(!isMember);
+  };
+
+  const handleValues = (e) => {
+    e.preventDefault();
+    setValues({ ...props });
+    toggleHidden();
+  };
+
+  console.log(values.item);
+
   return (
     <>
       <div>{name}</div>
@@ -15,12 +31,17 @@ const CarsCard = (props) => {
       <div>
         <img src={imageUrl} alt={name} />
       </div>
+      <button type="button" onClick={handleValues}>
+        place
+      </button>
+      {!isMember && <BookingsForm id={id} />}
     </>
   );
 };
 
 CarsCard.propTypes = {
   item: PropTypes.shape({
+    id: PropTypes.number,
     name: PropTypes.string,
     model: PropTypes.string,
     year: PropTypes.number,
