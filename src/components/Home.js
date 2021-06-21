@@ -33,7 +33,9 @@ const Home = () => {
       // show msg
     }
     const token = response.data.auth_token;
+    const { uid } = response.data;
     localStorage.setItem('user', name);
+    localStorage.setItem('uid', uid);
     localStorage.setItem('auth', token);
     history.push('/bookings');
   };

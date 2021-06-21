@@ -12,35 +12,24 @@ async function register({ name, password, cpassword }) {
   return response;
 }
 
-const auth = localStorage.getItem('auth');
-async function bookCar(
-  {
-    name, date, carId, price, createdBy, duration,
-  },
-) {
-  console.log({
-    name,
-    date,
-    carId,
-    price,
-    createdBy,
-    duration,
-  });
-  const response = await axios.post(
-    // 'https://car-rentapi.herokuapp.com/api/v1/bookings', {
-    'https://car-rentapi.herokuapp.com', {
-      name,
-      date,
-      carId,
-      price,
-      createdBy,
-      duration,
-      headers: {
-        Authorization: auth,
-      },
-    },
+// const auth = localStorage.getItem('auth');
+// const uid = localStorage.getItem('uid');
+async function bookCar({
+  name, date, carId, price, createdBy, duration,
+}) {
+  // const auth = localStorage.getItem('auth');
+  const uid = localStorage.getItem('uid');
+  console.log(
+    `https://car-rentapi.herokuapp.com/api/v1/bookings?name=${name.replace(/\s/g, '%20')}&date=${date}&carId=${carId}&price=${price}&createdBy=${createdBy}&duration=${duration}&userId=${JSON.parse(
+      uid,
+    )}`,
   );
-  return response;
+  // const response = await axios.post(`https://car-rentapi.herokuapp.com/api/v1/bookings?name=${name}&date=${date}&carId=${carId}&price=${price}&createdBy=${createdBy}&duration=${duration}&userId=${JSON.parse(uid)}`, {
+  //   headers: {
+  //     Authorization: auth,
+  //   },
+  // });
+  // return response;
 }
 
 const urlBookings = () => ('https://car-rentapi.herokuapp.com/api/v1/bookings');

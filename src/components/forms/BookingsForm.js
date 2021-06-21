@@ -1,11 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getBookingParams } from '../../redux/actions';
 import { bookCar } from '../../assets/getAuth';
 
 const BookingsForm = (props) => {
-  const { id, getBookingParams, params } = props; //eslint-disable-line
+  const { id } = props; //eslint-disable-line
   const user = localStorage.getItem('user');
   const [amount, setAmount] = React.useState('');
   const [time, setTime] = React.useState('');
@@ -32,22 +30,16 @@ const BookingsForm = (props) => {
       ...state,
       [e.target.name]: values,
       price: amount,
-      duration: parseFloat(time),
+      duration: time,
     });
   };
 
-  // React.useEffect(() => {
-  //   const {
-  //     name, date, carId, price, createdBy, duration,
-  //   } = params;
-  //   bookCar(name, date, carId, price, createdBy, duration);
-  // });
-
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const params = { ...state };
-    bookCar(params);
-    getBookingParams(params);
-    // console.log(params);
+    const response = await bookCar(params);
+    const msg = response.data;
+    console.log(msg);
   };
 
   return (
@@ -103,21 +95,8 @@ const BookingsForm = (props) => {
   );
 };
 
-const mapStateToProps = ({ bookingFormState: { params } }) => ({
-  params,
-});
-
 BookingsForm.propTypes = {
   id: PropTypes.number.isRequired,
-  getBookingParams: PropTypes.func.isRequired,
-  // params: PropTypes.shape({
-  //   name: PropTypes.string.isRequired,
-  //   date: PropTypes.string.isRequired,
-  //   carId: PropTypes.number.isRequired,
-  //   price: PropTypes.number.isRequired,
-  //   createdBy: PropTypes.string.isRequired,
-  //   duration: PropTypes.number.isRequired,
-  // }).isRequired,
 };
 
-export default connect(mapStateToProps, { getBookingParams })(BookingsForm);
+export default BookingsForm;
