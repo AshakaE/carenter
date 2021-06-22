@@ -32,6 +32,23 @@ async function bookCar({
   return response;
 }
 
+async function updateBooking({
+  name, date, carId, price, createdBy, duration,
+}, id) {
+  const auth = localStorage.getItem('auth');
+  const uid = localStorage.getItem('uid');
+  const response = await fetch(
+    `https://car-rentapi.herokuapp.com/api/v1/bookings/${id}?name=${name.replace(/\s/g, '%20')}&date=${date}&price=${price}&createdBy=${createdBy}&duration=${duration}&carId=${carId}&userId=${uid}`,
+    {
+      method: 'PUT',
+      headers: {
+        Authorization: auth,
+      },
+    },
+  ).then((r) => r.json());
+  return response;
+}
+
 async function urlDeleteBooking(id) {
   const auth = localStorage.getItem('auth');
   const response = await fetch(
@@ -60,4 +77,5 @@ export {
   urlUser,
   bookCar,
   urlDeleteBooking,
+  updateBooking,
 };

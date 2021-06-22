@@ -1,17 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { urlDeleteBooking } from '../assets/getAuth';
+import BookingsForm from './forms/BookingsForm';
 
 const BookingsCard = (props) => {
+  const [isMember, setIsMember] = React.useState(true);
+  const [update, setUpdate] = React.useState(false);
+  const [msg, setMsg] = React.useState('');
   const {
     item: {
-      id, name, carModel, carName, imageUrl, userName, price,
+      id, name, carModel, carName, imageUrl, userName, price, carId,
     },
   } = props;
 
   const handleDelete = async () => {
     const response = await urlDeleteBooking(id);
-    console.log(response);
+    const msg = response.message;
+    setMsg(msg);
+  };
+
+  const toggleHidden = () => {
+    setIsMember(!isMember);
+    setUpdate(!update);
   };
 
   return (
@@ -27,6 +37,11 @@ const BookingsCard = (props) => {
       <button type="button" onClick={handleDelete}>
         Delete booking
       </button>
+      <button type="button" onClick={toggleHidden}> Update booking</button>
+      {!isMember && <BookingsForm carId={id} id={carId} update={update} />}
+      {msg && (
+        <div>{msg}</div>
+      )}
     </>
   );
 };
@@ -34,6 +49,7 @@ const BookingsCard = (props) => {
 BookingsCard.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.number,
+    carId: PropTypes.number,
     price: PropTypes.number,
     name: PropTypes.string,
     carName: PropTypes.string,
