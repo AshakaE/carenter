@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { bookCar } from '../../assets/getAuth';
 
 const BookingsForm = (props) => {
+  const history = useHistory();
   const { id } = props; //eslint-disable-line
   const user = localStorage.getItem('user');
   const [amount, setAmount] = React.useState('');
@@ -38,7 +40,8 @@ const BookingsForm = (props) => {
     e.preventDefault();
     const params = { ...state };
     const response = await bookCar(params);
-    const msg = response.data;
+    const msg = response.message;
+    history.push('/bookings');
     console.log(msg);
   };
 
