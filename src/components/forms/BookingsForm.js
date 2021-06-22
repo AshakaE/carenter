@@ -40,9 +40,8 @@ const BookingsForm = (props) => {
     e.preventDefault();
     const params = { ...state };
     const response = await bookCar(params);
-    const msg = response.message;
+    console.log(response.message); // funtion to get response to redux
     history.push('/bookings');
-    console.log(msg);
   };
 
   return (

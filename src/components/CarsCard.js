@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import BookingsForm from './forms/BookingsForm';
 
 const CarsCard = (props) => {
-  const [values, setValues] = React.useState('');
   const [isMember, setIsMember] = React.useState(true);
   const {
     item: {
@@ -17,11 +16,8 @@ const CarsCard = (props) => {
 
   const handleValues = (e) => {
     e.preventDefault();
-    setValues({ ...props });
     toggleHidden();
   };
-
-  console.log(values.item);
 
   return (
     <>
