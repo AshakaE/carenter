@@ -4,7 +4,6 @@ import { urlBookings, urlCars, urlUser } from '../assets/getAuth';
 export const GET_CARS = 'GET_CARS';
 export const GET_USER = 'GET_USER';
 export const GET_BOOKINGS = 'GET_BOOKINGS';
-export const BOOKING = 'BOOKING';
 
 export const SET_LOADING = 'SET_LOADING';
 
@@ -20,7 +19,6 @@ export const getBookings = () => async function fn(dispatch) {
       },
     });
   const data = await response.data;
-  console.log(data);
   dispatch({ type: GET_BOOKINGS, payload: data });
 };
 
@@ -34,7 +32,6 @@ export const getCars = () => async function fn(dispatch) {
       },
     });
   const data = await response.data;
-  console.log(data);
   dispatch({ type: GET_CARS, payload: data });
 };
 
@@ -48,10 +45,5 @@ export const getUser = () => async function fn(dispatch) {
       },
     });
   const data = await response.data;
-  console.log(data);
   dispatch({ type: GET_USER, payload: data });
-};
-
-export const getBookingParams = (params) => async function fn(dispatch) {
-  dispatch({ type: BOOKING, payload: params });
 };
