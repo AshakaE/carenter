@@ -1,8 +1,10 @@
+/* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
+
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { login, register } from '../assets/getAuth';
 
-const Home = () => {
+const Login = () => {
   const history = useHistory();
   const [name, setName] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -14,7 +16,7 @@ const Home = () => {
   const toggleMember = () => {
     setIsMember((prev) => {
       const isMember = !prev;
-      isMember ? setCpassword('default') : setCpassword(''); //eslint-disable-line
+      isMember ? setCpassword('default') : setCpassword('');
       return isMember;
     });
   };
@@ -26,11 +28,6 @@ const Home = () => {
       response = await login({ name, password });
     } else {
       response = await register({ name, password, cpassword });
-    }
-    if (response) {
-      //
-    } else {
-      // show msg
     }
     const token = response.data.auth_token;
     const { uid } = response.data;
@@ -107,4 +104,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Login;

@@ -12,7 +12,7 @@ const UserForm = (props) => {
 
   const handleSave = async () => {
     await userUpdate({ name, password, cpassword });
-    history.push('/');
+    history.push('/login-or-signup');
   };
 
   return (

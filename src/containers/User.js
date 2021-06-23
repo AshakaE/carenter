@@ -2,12 +2,10 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUser } from '../redux/actions';
-// import { useParams } from 'react-router-dom';
 import UserCard from '../components/UserCard';
 
 const User = (props) => {
   const { loading, user, getUser } = props;
-  // let { user } = useParams();
   useEffect(() => {
     getUser();
   }, []);
@@ -18,9 +16,6 @@ const User = (props) => {
 
   return (
     <div>
-      {/* {user.map((item) => (
-        <UserCard key={item.id} item={item} />
-      ))} */}
       <UserCard user={user} />
     </div>
   );
@@ -32,12 +27,12 @@ const mapStateToProps = ({
 
 User.propTypes = {
   loading: PropTypes.bool.isRequired,
-  user: PropTypes.string, // eslint-disable-line
+  user: PropTypes.string,
   getUser: PropTypes.func.isRequired,
 };
 
-// User.defaultProps = {
-//   user: [],
-// };
+User.defaultProps = {
+  user: '',
+};
 
 export default connect(mapStateToProps, { getUser })(User);
