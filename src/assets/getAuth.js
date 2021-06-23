@@ -12,6 +12,36 @@ async function register({ name, password, cpassword }) {
   return response;
 }
 
+async function userUpdate({ name, password, cpassword }) {
+  const auth = localStorage.getItem('auth');
+  const uid = localStorage.getItem('uid');
+  const response = await fetch(
+    `https://car-rentapi.herokuapp.com/users/${uid}?name=${name}&password=${password}&password_confirmation=${cpassword}`,
+    {
+      method: 'PUT',
+      headers: {
+        Authorization: auth,
+      },
+    },
+  ).then((r) => r.json());
+  return response;
+}
+
+async function userDelete() {
+  const auth = localStorage.getItem('auth');
+  const uid = localStorage.getItem('uid');
+  const response = await fetch(
+    `https://car-rentapi.herokuapp.com/users/${uid}`,
+    {
+      method: 'DELETE',
+      headers: {
+        Authorization: auth,
+      },
+    },
+  ).then((r) => r.json());
+  return response;
+}
+
 async function bookCar({
   name, date, carId, price, createdBy, duration,
 }) {
@@ -78,4 +108,6 @@ export {
   bookCar,
   urlDeleteBooking,
   updateBooking,
+  userUpdate,
+  userDelete,
 };

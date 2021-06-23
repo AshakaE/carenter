@@ -38,7 +38,7 @@ const BookingsCard = (props) => {
         Delete booking
       </button>
       <button type="button" onClick={toggleHidden}> Update booking</button>
-      {!isMember && <BookingsForm carId={id} id={carId} update={update} />}
+      {!isMember && <BookingsForm carId={id} id={carId} update={update} alert={alert} />}
       {msg && (
         <div>{msg}</div>
       )}

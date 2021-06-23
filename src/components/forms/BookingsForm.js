@@ -5,7 +5,9 @@ import { bookCar, updateBooking } from '../../assets/getAuth';
 
 const BookingsForm = (props) => {
   const history = useHistory();
-  const { id, update, carId } = props;
+  const {
+    id, update, carId,
+  } = props;
   const user = localStorage.getItem('user');
   const [amount, setAmount] = React.useState('');
   const [time, setTime] = React.useState('');
@@ -36,18 +38,17 @@ const BookingsForm = (props) => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     const params = { ...state };
     let response;
     if (update) {
       response = await updateBooking(params, carId);
+      history.push('/bookings');
     } else {
       response = await bookCar(params);
+      history.push('/bookings');
     }
     const msg = response.message;
-    history.push('/bookings');
-    console.log(msg);
     return msg;
   };
 
@@ -97,7 +98,7 @@ const BookingsForm = (props) => {
       {isEmpty && <p>Please fill the inputs</p>}
       {
         (() => {
-          if (update && !isEmpty) return <button type="button" id="btn" name="update" onClick={handleSubmit}>Save</button>;
+          if (update && !isEmpty) return <button type="submit" id="btn" onClick={handleSubmit}>Save</button>;
           if (!isEmpty) return <button type="submit" id="btn" onClick={handleSubmit}>Submit</button>;
           return true;
         })()
@@ -108,12 +109,13 @@ const BookingsForm = (props) => {
 
 BookingsForm.propTypes = {
   id: PropTypes.number.isRequired,
-  carId: PropTypes.number.isRequired,
+  carId: PropTypes.number,
   update: PropTypes.bool,
 };
 
 BookingsForm.defaultProps = {
   update: false,
+  carId: 0,
 };
 
 export default BookingsForm;
