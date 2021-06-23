@@ -1,0 +1,19 @@
+.container {
+  @apply w-full pt-80 pb-20 w-[90vw] m-auto;
+}
+
+.items {
+  @apply m-auto w-[50%] flex flex-col items-center backdrop-filter backdrop-blur-xl py-10 rounded-xl;
+}
+
+.header {
+  @apply text-6xl font-bold uppercase text-white;
+}
+
+.img {
+  @apply absolute z-[-10] object-cover max-h-screen w-full overflow-hidden;
+}
+
+.btn {
+  @apply py-1 px-4 bg-green-500 w-1/4 mt-5 text-white text-center font-normal text-base hover:bg-green-700 rounded-lg focus:outline-none cursor-pointer uppercase;
+}
