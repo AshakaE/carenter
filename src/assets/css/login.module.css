@@ -1,0 +1,23 @@
+.header {
+  @apply text-center text-3xl mb-5 uppercase text-white font-medium;
+}
+
+.input {
+  @apply shadow appearance-none border rounded-md py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none w-[300px] text-center;
+}
+
+.inputDiv {
+  @apply py-2;
+}
+
+.inputDivText {
+  @apply text-white font-medium;
+}
+
+.inputType {
+  @apply focus:outline-none outline-none ml-3 mt-3;
+}
+
+.btn {
+  @apply py-1 px-4 w-[300px] mt-3 text-white text-center font-normal text-xl rounded-lg focus:outline-none cursor-pointer uppercase bg-pLight hover:bg-pDark font-medium duration-100;
+}

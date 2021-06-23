@@ -3,6 +3,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { login, register } from '../assets/getAuth';
+import styles from '../assets/css/home.module.css';
+import logpage from '../assets/css/login.module.css';
+import carHome from '../assets/img/carHome.png';
 
 const Login = () => {
   const history = useHistory();
@@ -40,64 +43,79 @@ const Login = () => {
   return (
     <>
       <div>
-        <div>
-          <h2 className="">{isMember ? 'Sign In' : 'Register'}</h2>
-          <form className="" method="POST">
-            <div>
+        <img src={carHome} alt="car" className={styles.img} />
+        <div className={styles.container}>
+          <div className={styles.items}>
+            <h2 className={logpage.header}>
+              {isMember ? 'Sign In' : 'Register'}
+            </h2>
+            <div className={logpage.inputDiv}>
               <label htmlFor="Name">
-                <div className="text-left">Name</div>
+                <div className={logpage.inputDivText}>Name</div>
                 <input
                   id="Name"
                   name="Name"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  className={logpage.input}
+                  placeholder="your name"
                 />
               </label>
             </div>
-            <div>
+            <div className={logpage.inputDiv}>
               <label htmlFor="Password">
-                <div className="text-left">Password</div>
+                <div className={logpage.inputDivText}>Password</div>
                 <input
                   id="Password"
                   name="Password"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  className={logpage.input}
+                  placeholder="**********"
                 />
               </label>
             </div>
             {!isMember && (
-              <div>
+              <div className={logpage.inputDiv}>
                 <label htmlFor="Password">
-                  <div className="text-left">Confirm password</div>
+                  <div className={logpage.inputDivText}>Confirm password</div>
                   <input
                     id="cpassword"
                     name="cpassword"
                     type="password"
                     value={cpassword}
                     onChange={(e) => setCpassword(e.target.value)}
+                    className={logpage.input}
                   />
                 </label>
               </div>
             )}
-            {isEmpty && <p>Please fill the inputs</p>}
+            {isEmpty && (
+              <p className={logpage.inputDivText}>Please fill the inputs</p>
+            )}
             {!isEmpty && (
               <div className="mt-3">
                 <input
                   type="submit"
                   value={isMember ? 'Log in' : 'Submit'}
                   onClick={handleSubmit}
+                  className={logpage.btn}
                 />
               </div>
             )}
-            <p>
-              {isMember ? 'need to register' : 'already a member'}
-              <button type="button" onClick={toggleMember}>
+            <p className={logpage.inputDivText}>
+              {isMember ? 'need to register ? ' : 'already a member ? '}
+              <button
+                type="button"
+                onClick={toggleMember}
+                className={logpage.inputType}
+              >
                 Click here
               </button>
             </p>
-          </form>
+          </div>
         </div>
       </div>
     </>
