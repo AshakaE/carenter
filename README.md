@@ -6,14 +6,14 @@
 
 <p align="center">
   
-  <img src="src/assets/img/index.jpeg" width="50%" align="left">
-  <img src="src/assets/img/login.jpeg" width="50%" align="right">
+  <img src="src/assets/img/index.jpeg">
+  <img src="src/assets/img/login.jpeg">
 
 </p>
 <p align="center">
   
-  <img src="src/assets/img/gallery.jpeg" width="50%" align="left">
-  <img src="src/assets/img/bookings.jpeg" width="50%" align="right">
+  <img src="src/assets/img/gallery.jpeg">
+  <img src="src/assets/img/bookings.jpeg">
 
 </p>
 <p align="center">
@@ -42,7 +42,7 @@
 
 ### Prerequisites
 
-Node.js
+- Node.js
 
 ### Run tests
 
