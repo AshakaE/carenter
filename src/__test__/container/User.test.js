@@ -27,9 +27,6 @@ describe('User', () => {
         <BrowserRouter>
           <User
             store={store}
-            id="1"
-            user="user"
-            key="1"
           />
         </BrowserRouter>,
       )

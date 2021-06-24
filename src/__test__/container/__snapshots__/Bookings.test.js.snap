@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bookings renders correctly 1`] = `
+Array [
+  <h1
+    className="cardText"
+  >
+    Bookings
+  </h1>,
+  <div
+    className="links"
+  >
+    <div
+      className="link"
+    >
+      <a
+        href="/cars"
+        onClick={[Function]}
+      >
+        Cars gallery
+      </a>
+    </div>
+    <div
+      className="link"
+    >
+      <a
+        href="/user"
+        onClick={[Function]}
+      >
+        My Account
+      </a>
+    </div>
+  </div>,
+  <div
+    className="container"
+  >
+    <div
+      className="gridHead"
+    >
+      <div>
+        Title
+      </div>
+      <div>
+        Car make
+      </div>
+      <div>
+        Car model
+      </div>
+      <div>
+        Created by
+      </div>
+      <div>
+        Price ($)
+      </div>
+      <div>
+        Date
+      </div>
+      <div>
+        Actions
+      </div>
+    </div>
+  </div>,
+]
+`;
