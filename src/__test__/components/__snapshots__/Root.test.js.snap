@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Root renders correctly 1`] = `
+<div>
+  <img
+    alt="car"
+    className="img"
+    src="carIndex.png"
+  />
+  <div
+    className="container"
+  >
+    <div
+      className="items"
+    >
+      <div
+        className="header"
+      >
+        <h1>
+          Welcome to Carenter
+        </h1>
+      </div>
+      <div
+        className="btn"
+      >
+        <a
+          href="/login-or-signup"
+          onClick={[Function]}
+        >
+          Book a ride now
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
