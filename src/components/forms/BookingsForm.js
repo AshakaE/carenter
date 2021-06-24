@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { bookCar, updateBooking } from '../../assets/getAuth';
+import styles from '../../assets/css/forms.module.css';
+import gallery from '../../assets/css/cars.module.css';
 
 const BookingsForm = (props) => {
   const history = useHistory();
@@ -54,55 +56,80 @@ const BookingsForm = (props) => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="name"
-        name="name"
-        onChange={handleChange}
-      />
-      {!isEmpty && (
+      <div className={styles.inputDiv}>
         <input
-          type="date"
-          placeholder="date"
-          name="date"
+          type="text"
+          placeholder="booking title"
+          name="name"
           onChange={handleChange}
+          className={styles.inputBox}
         />
-      )}
-      <input
-        type="number"
-        placeholder="car number"
-        value={id}
-        name="carId"
-        readOnly
-      />
-      <input
-        type="number"
-        placeholder="price"
-        value={amount}
-        readOnly
-        name="price"
-      />
-      <input
-        type="text"
-        placeholder="CreatedBy"
-        value={user}
-        readOnly
-        name="createdBy"
-      />
-      <input
-        type="number"
-        placeholder="duration"
-        onChange={handlePrice}
-        name="duration"
-      />
-      {isEmpty && <p>Please fill the inputs</p>}
-      {
-        (() => {
-          if (update && !isEmpty) return <button type="submit" id="btn" onClick={handleSubmit}>Save</button>;
-          if (!isEmpty) return <button type="submit" id="btn" onClick={handleSubmit}>Submit</button>;
-          return true;
-        })()
-      }
+        <input
+          type="text"
+          placeholder="CreatedBy"
+          value={user}
+          readOnly
+          name="createdBy"
+          className={styles.inputBox}
+          disabled
+        />
+      </div>
+      <div className={styles.inputDiv}>
+        <input
+          type="number"
+          placeholder="duration"
+          onChange={handlePrice}
+          name="duration"
+          className={styles.inputBox}
+        />
+        <input
+          type="number"
+          placeholder="price"
+          value={amount}
+          readOnly
+          name="price"
+          disabled
+          className={styles.inputBox}
+        />
+      </div>
+      <div className={styles.inputDiv}>
+        {!isEmpty && (
+          <input
+            type="date"
+            placeholder="date"
+            name="date"
+            onChange={handleChange}
+            className={styles.inputBox}
+          />
+        )}
+        <input
+          type="number"
+          placeholder="car number"
+          value={id}
+          name="carId"
+          readOnly
+          disabled
+          className={styles.inputBox}
+        />
+      </div>
+      {isEmpty && <p className={styles.info}>Please fill the inputs</p>}
+      {(() => {
+        if (update && !isEmpty) {
+          return (
+            <button type="submit" id="btn" onClick={handleSubmit}>
+              Save
+            </button>
+          );
+        }
+        if (!isEmpty) {
+          return (
+            <button type="submit" id="btn" onClick={handleSubmit} className={gallery.btn}>
+              Submit
+            </button>
+          );
+        }
+        return true;
+      })()}
     </div>
   );
 };

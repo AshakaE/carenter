@@ -1,0 +1,11 @@
+.inputDiv {
+  @apply flex justify-between py-1;
+}
+
+.inputBox {
+  @apply w-full py-1 text-center border-[.1px] border-pLight focus:outline-none rounded-md;
+}
+
+.info {
+  @apply text-center italic;
+}

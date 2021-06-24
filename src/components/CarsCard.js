@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BookingsForm from './forms/BookingsForm';
+import gallery from '../assets/css/cars.module.css';
 
 const CarsCard = (props) => {
   const [isMember, setIsMember] = React.useState(true);
@@ -21,16 +22,29 @@ const CarsCard = (props) => {
 
   return (
     <>
-      <div>{name}</div>
-      <div>{model}</div>
-      <div>{year}</div>
-      <div>
-        <img src={imageUrl} alt={name} />
+      <div className={gallery.cardI}>
+        <div className={gallery.cardBox}>
+          <div className={gallery.cardText}>
+            <p>Name:&nbsp;</p>
+            <p>{name}</p>
+          </div>
+          <div className={gallery.cardText}>
+            <p>model:&nbsp;</p>
+            <p>{model}</p>
+          </div>
+          <div className={gallery.cardText}>
+            <p>year:&nbsp;</p>
+            <p>{year}</p>
+          </div>
+          <div>
+            <img src={imageUrl} alt={name} />
+          </div>
+          <button type="button" onClick={handleValues} className={gallery.btn}>
+            place booking
+          </button>
+          {!isMember && <BookingsForm id={id} />}
+        </div>
       </div>
-      <button type="button" onClick={handleValues}>
-        place
-      </button>
-      {!isMember && <BookingsForm id={id} />}
     </>
   );
 };
