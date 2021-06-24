@@ -28,6 +28,7 @@ const UserForm = (props) => {
                   id="Name"
                   name="Name"
                   type="text"
+                  placeholder="New name ?"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className={form.input}
@@ -41,6 +42,7 @@ const UserForm = (props) => {
                   id="Password"
                   name="Password"
                   type="password"
+                  placeholder="********"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className={form.input}
@@ -54,6 +56,7 @@ const UserForm = (props) => {
                   id="cpassword"
                   name="cpassword"
                   type="password"
+                  placeholder="********"
                   value={cpassword}
                   onChange={(e) => setCpassword(e.target.value)}
                   className={form.input}
@@ -61,7 +64,12 @@ const UserForm = (props) => {
               </label>
             </div>
           </div>
-          <button type="submit" id="btn" onClick={handleSave} className={form.btn}>
+          <button
+            type="submit"
+            id="btn"
+            onClick={handleSave}
+            className={form.btn}
+          >
             Save
           </button>
         </>

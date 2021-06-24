@@ -4,7 +4,7 @@ import { SET_LOADING, GET_BOOKINGS } from '../../redux/actions';
 const state = {};
 
 describe('bookingsReducer', () => {
-  it('returns state with a boolean and an string', () => {
+  it('returns state with a boolean and an array', () => {
     const newState = { loading: true, bookings: [] };
     bookingsReducer({ ...newState }, SET_LOADING);
     expect(state).toEqual({});
