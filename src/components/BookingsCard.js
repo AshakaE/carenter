@@ -10,7 +10,7 @@ const BookingsCard = (props) => {
   const [msg, setMsg] = React.useState('');
   const {
     item: {
-      id, name, carModel, carName, imageUrl, userName, price, carId, date, //eslint-disable-line
+      id, name, carModel, carName, userName, price, carId, date,
     },
   } = props;
 
@@ -68,7 +68,6 @@ BookingsCard.propTypes = {
     date: PropTypes.string,
     carModel: PropTypes.string,
     userName: PropTypes.string,
-    // imageUrl: PropTypes.string,
   }),
 };
 

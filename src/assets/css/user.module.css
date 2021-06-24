@@ -1,0 +1,27 @@
+.container {
+  @apply pt-56 pb-20 w-[90vw] m-auto;
+}
+
+.img {
+  @apply absolute z-[-10] object-cover max-h-screen w-full overflow-hidden;
+}
+
+.items {
+  @apply m-auto w-[50%] flex flex-col items-center backdrop-filter backdrop-blur py-10 rounded-xl bg-white bg-opacity-20;
+}
+
+.btn {
+  @apply py-2 px-1 my-2 mx-1 mt-4 w-[35%] text-white text-base text-center font-normal rounded-lg focus:outline-none cursor-pointer uppercase bg-tLight hover:bg-tDark font-medium duration-100;
+}
+
+.btnDel {
+  @apply py-2 px-2 my-2 w-[35%] text-white text-base text-center font-normal rounded-lg focus:outline-none cursor-pointer uppercase bg-red-600 hover:bg-red-800 font-medium duration-100;
+}
+
+.links {
+  @apply flex w-full  justify-around mt-5 font-head text-white text-xl;
+}
+
+.link {
+  @apply hover:text-sLight underline;
+}

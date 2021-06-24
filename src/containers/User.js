@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUser } from '../redux/actions';
 import UserCard from '../components/UserCard';
+import carUser2 from '../assets/img/carUser2.png';
+import styles from '../assets/css/user.module.css';
 
 const User = (props) => {
   const { loading, user, getUser } = props;
@@ -16,7 +18,10 @@ const User = (props) => {
 
   return (
     <div>
-      <UserCard user={user} />
+      <div>
+        <img src={carUser2} alt="car" className={styles.img} />
+        <UserCard user={user} />
+      </div>
     </div>
   );
 };
