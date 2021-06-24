@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login renders correctly 1`] = `
+<div>
+  <img
+    alt="car"
+    className="img"
+    src="carHome.png"
+  />
+  <div
+    className="container"
+  >
+    <div
+      className="items"
+    >
+      <h2
+        className="header"
+      >
+        Sign In
+      </h2>
+      <div
+        className="inputDiv"
+      >
+        <label
+          htmlFor="Name"
+        >
+          <div
+            className="inputDivText"
+          >
+            Name
+          </div>
+          <input
+            className="input"
+            id="Name"
+            name="Name"
+            onChange={[Function]}
+            placeholder="your name"
+            type="text"
+            value=""
+          />
+        </label>
+      </div>
+      <div
+        className="inputDiv"
+      >
+        <label
+          htmlFor="Password"
+        >
+          <div
+            className="inputDivText"
+          >
+            Password
+          </div>
+          <input
+            className="input"
+            id="Password"
+            name="Password"
+            onChange={[Function]}
+            placeholder="**********"
+            type="password"
+            value=""
+          />
+        </label>
+      </div>
+      <p
+        className="inputDivText"
+      >
+        Please fill the inputs
+      </p>
+      <p
+        className="inputDivText"
+      >
+        need to register ? 
+        <button
+          className="inputType"
+          onClick={[Function]}
+          type="button"
+        >
+          Click here
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
+`;
