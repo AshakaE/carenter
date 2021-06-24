@@ -1,0 +1,39 @@
+.container {
+  @apply m-8 bg-green-200 border-green-200 border bg-opacity-10;
+}
+
+.gridHead {
+  @apply grid grid-cols-7 items-center font-bold border-green-200 border-b py-3 px-3 bg-tLight text-white;
+}
+
+.gridBox {
+  @apply grid grid-cols-7 items-center font-medium px-3 border-green-200 border-b py-2;
+}
+
+.action {
+  @apply col-span-2;
+}
+
+.btn {
+  @apply py-1 px-1 my-2 mx-1 w-auto text-white text-sm text-center font-normal rounded-lg focus:outline-none cursor-pointer uppercase bg-pLight hover:bg-pDark font-medium duration-100;
+}
+
+.btnDel {
+  @apply py-1 px-1 w-auto text-white text-sm text-center font-normal rounded-lg focus:outline-none cursor-pointer uppercase bg-red-600 hover:bg-red-800 font-medium duration-100;
+}
+
+.form {
+  @apply px-80;
+}
+
+.cardText {
+  @apply ml-[41%] mt-14 font-head text-gray-700 text-6xl m-auto;
+}
+
+.links {
+  @apply flex w-4/12 ml-[31%] justify-around mt-5 font-head text-sLight text-xl;
+}
+
+.link {
+  @apply hover:text-sDark underline;
+}

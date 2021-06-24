@@ -9,6 +9,8 @@ module.exports = {
         pDark: '#6f8d0c',
         sLight: '#6840F0',
         sDark: '#4424ac',
+        tLight: '#10BBB5',
+        tDark: '#0d7e7a',
       },
       fontFamily: {
         head: ['Viga'],

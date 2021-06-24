@@ -116,7 +116,12 @@ const BookingsForm = (props) => {
       {(() => {
         if (update && !isEmpty) {
           return (
-            <button type="submit" id="btn" onClick={handleSubmit}>
+            <button
+              type="submit"
+              id="btn"
+              onClick={handleSubmit}
+              className={gallery.btn}
+            >
               Save
             </button>
           );

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCars } from '../redux/actions';
 import CarsCard from '../components/CarsCard';
@@ -19,6 +20,14 @@ const Cars = (props) => {
   return (
     <div className={gallery.container}>
       <h1 className={gallery.header}>Gallery</h1>
+      <div className={gallery.links}>
+        <div className={gallery.link}>
+          <Link to="/bookings">My Bookings</Link>
+        </div>
+        <div className={gallery.link}>
+          <Link to="/user">My Account</Link>
+        </div>
+      </div>
       <div className={gallery.card}>
         <div className={gallery.cardInner}>
           {Object.values(cars).map((item) => (
