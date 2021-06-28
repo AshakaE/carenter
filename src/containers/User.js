@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUser } from '../redux/actions';
 import UserCard from '../components/UserCard';
+import Loading from '../components/Loading';
 import carUser2 from '../assets/img/carUser2.png';
 import styles from '../assets/css/user.module.css';
 
@@ -13,7 +14,9 @@ const User = (props) => {
   }, []);
 
   if (loading) {
-    return <div>hello</div>;
+    return (
+      <Loading />
+    );
   }
 
   return (

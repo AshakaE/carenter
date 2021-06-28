@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCars } from '../redux/actions';
+import Loading from '../components/Loading';
 import CarsCard from '../components/CarsCard';
 import gallery from '../assets/css/cars.module.css';
 
@@ -14,7 +15,9 @@ const Cars = (props) => {
   }, []);
 
   if (loading) {
-    return <div>hello</div>;
+    return (
+      <Loading />
+    );
   }
 
   return (

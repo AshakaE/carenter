@@ -39,7 +39,7 @@ export const getUser = () => async function fn(dispatch) {
     headers: {
       Authorization: auth,
     },
-  }).then((response) => response.json());
-  console.log(response);
-  dispatch({ type: GET_USER, payload: response });
+  })
+    .then((response) => response.json());
+  dispatch({ type: GET_USER, payload: response.name });
 };

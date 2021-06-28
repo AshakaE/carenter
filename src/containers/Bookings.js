@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getBookings } from '../redux/actions';
+import Loading from '../components/Loading';
 import BookingsCard from '../components/BookingsCard';
 import tables from '../assets/css/bookings.module.css';
 
@@ -15,9 +16,7 @@ const Bookings = (props) => {
 
   if (loading) {
     return (
-      <div>
-        hello
-      </div>
+      <Loading />
     );
   }
 
