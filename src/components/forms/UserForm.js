@@ -7,12 +7,12 @@ import form from '../../assets/css/login.module.css';
 const UserForm = (props) => {
   const { edit } = props;
   const history = useHistory();
-  const [name, setName] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [username, setUsername] = React.useState('');
+  const [fpassword, setFpassword] = React.useState('');
   const [cpassword, setCpassword] = React.useState('');
 
   const handleSave = async () => {
-    await userUpdate({ name, password, cpassword });
+    await userUpdate({ username, fpassword, cpassword });
     history.push('/login-or-signup');
   };
 
@@ -29,8 +29,8 @@ const UserForm = (props) => {
                   name="Name"
                   type="text"
                   placeholder="New name ?"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   className={form.input}
                 />
               </label>
@@ -43,8 +43,8 @@ const UserForm = (props) => {
                   name="Password"
                   type="password"
                   placeholder="********"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={fpassword}
+                  onChange={(e) => setFpassword(e.target.value)}
                   className={form.input}
                 />
               </label>

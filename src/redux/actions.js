@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { urlBookings, urlCars, urlUser } from '../assets/getAuth';
 
 export const GET_CARS = 'GET_CARS';
@@ -12,38 +11,35 @@ export const setLoading = () => ({ type: SET_LOADING });
 export const getBookings = () => async function fn(dispatch) {
   const auth = localStorage.getItem('auth');
   dispatch(setLoading());
-  const response = await axios.get(urlBookings(),
+  const response = await fetch(urlBookings(),
     {
       headers: {
         Authorization: auth,
       },
-    });
-  const data = await response.data;
-  dispatch({ type: GET_BOOKINGS, payload: data });
+    }).then((response) => response.json());
+  dispatch({ type: GET_BOOKINGS, payload: response });
 };
 
 export const getCars = () => async function fn(dispatch) {
   const auth = localStorage.getItem('auth');
   dispatch(setLoading());
-  const response = await axios.get(urlCars(),
+  const response = await fetch(urlCars(),
     {
       headers: {
         Authorization: auth,
       },
-    });
-  const data = await response.data;
-  dispatch({ type: GET_CARS, payload: data });
+    }).then((response) => response.json());
+  dispatch({ type: GET_CARS, payload: response });
 };
 
 export const getUser = () => async function fn(dispatch) {
   const auth = localStorage.getItem('auth');
   dispatch(setLoading());
-  const response = await axios.get(urlUser(),
-    {
-      headers: {
-        Authorization: auth,
-      },
-    });
-  const data = await response.data;
-  dispatch({ type: GET_USER, payload: data });
+  const response = await fetch(urlUser(), {
+    headers: {
+      Authorization: auth,
+    },
+  }).then((response) => response.json());
+  console.log(response);
+  dispatch({ type: GET_USER, payload: response });
 };

@@ -8,13 +8,13 @@ import logpage from '../assets/css/login.module.css';
 import carHome from '../assets/img/carHome.png';
 
 const Login = () => {
-  const history = useHistory();
-  const [name, setName] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const history = useHistory(); //eslint-disable-line
+  const [username, setUsername] = React.useState('');
+  const [fpassword, setFpassword] = React.useState('');
   const [cpassword, setCpassword] = React.useState('default');
   const [isMember, setIsMember] = React.useState(true);
 
-  const isEmpty = !name || !password || !cpassword;
+  const isEmpty = !username || !fpassword || !cpassword;
 
   const toggleMember = () => {
     setIsMember((prev) => {
@@ -28,16 +28,22 @@ const Login = () => {
     e.preventDefault();
     let response;
     if (isMember) {
-      response = await login({ name, password });
+      response = await login({ username, fpassword });
+      if (response.uid) {
+        const token = response.auth_token;
+        const { uid } = response;
+        localStorage.setItem('user', username);
+        localStorage.setItem('uid', uid);
+        localStorage.setItem('auth', token);
+        history.push('/bookings');
+      }
+      if (response.message) {
+        return response.message;
+      }
     } else {
-      response = await register({ name, password, cpassword });
+      response = await register({ username, fpassword, cpassword });
     }
-    const token = response.data.auth_token;
-    const { uid } = response.data;
-    localStorage.setItem('user', name);
-    localStorage.setItem('uid', uid);
-    localStorage.setItem('auth', token);
-    history.push('/bookings');
+    return response;
   };
 
   return (
@@ -56,8 +62,8 @@ const Login = () => {
                   id="Name"
                   name="Name"
                   type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   className={logpage.input}
                   placeholder="your name"
                 />
@@ -70,8 +76,8 @@ const Login = () => {
                   id="Password"
                   name="Password"
                   type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={fpassword}
+                  onChange={(e) => setFpassword(e.target.value)}
                   className={logpage.input}
                   placeholder="**********"
                 />

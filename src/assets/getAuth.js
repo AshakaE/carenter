@@ -1,33 +1,50 @@
-async function login({ name, password }) {
+async function login({ username, fpassword }) {
   const response = await fetch('https://car-rentapi.herokuapp.com/login?', {
     method: 'POST',
-    body: {
-      name,
-      password,
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
     },
-  }).then((r) => r.json());
+    body: JSON.stringify({
+      name: username,
+      password: fpassword,
+    }),
+  }).then((response) => response.json());
   return response;
 }
 
-async function register({ name, password, cpassword }) {
-  const response = await axios.post(
-    `https://car-rentapi.herokuapp.com/signup?name=${name}&password=${password}&password_confirmation=${cpassword}`,
-  );
+async function register({ username, fpassword, cpassword }) {
+  const response = await fetch('https://car-rentapi.herokuapp.com/signup?', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    body: JSON.stringify({
+      name: username,
+      password: fpassword,
+      password_confirmation: cpassword,
+    }),
+  }).then((response) => response.json());
   return response;
 }
 
-async function userUpdate({ name, password, cpassword }) {
+async function userUpdate({ username, fpassword, cpassword }) {
   const auth = localStorage.getItem('auth');
   const uid = localStorage.getItem('uid');
   const response = await fetch(
-    `https://car-rentapi.herokuapp.com/users/${uid}?name=${name}&password=${password}&password_confirmation=${cpassword}`,
+    `https://car-rentapi.herokuapp.com/users/${uid}?`,
     {
       method: 'PUT',
       headers: {
         Authorization: auth,
+        'Content-Type': 'application/json;charset=utf-8',
       },
+      body: JSON.stringify({
+        name: username,
+        password: fpassword,
+        password_confirmation: cpassword,
+      }),
     },
-  ).then((r) => r.json());
+  ).then((response) => response.json());
   return response;
 }
 
@@ -40,9 +57,10 @@ async function userDelete() {
       method: 'DELETE',
       headers: {
         Authorization: auth,
+        'Content-Type': 'application/json;charset=utf-8',
       },
     },
-  ).then((r) => r.json());
+  ).then((response) => response.json());
   return response;
 }
 
@@ -52,17 +70,15 @@ async function bookCar({
   const auth = localStorage.getItem('auth');
   const uid = localStorage.getItem('uid');
   const response = await fetch(
-    `https://car-rentapi.herokuapp.com/api/v1/bookings?name=${name.replace(
-      /\s/g,
-      '%20',
-    )}&date=${date}&price=${price}&createdBy=${createdBy}&duration=${duration}&carId=${carId}&userId=${uid}`,
+    `https://car-rentapi.herokuapp.com/api/v1/bookings?name=${name.replace(/\s/g, '%20')}&date=${date}&price=${price}&createdBy=${createdBy}&duration=${duration}&carId=${carId}&userId=${uid}`,
     {
       method: 'POST',
       headers: {
         Authorization: auth,
+        'Content-Type': 'application/json;charset=utf-8',
       },
     },
-  ).then((r) => r.json());
+  ).then((response) => response.json());
   return response;
 }
 
@@ -77,9 +93,10 @@ async function updateBooking({
       method: 'PUT',
       headers: {
         Authorization: auth,
+        'Content-Type': 'application/json;charset=utf-8',
       },
     },
-  ).then((r) => r.json());
+  ).then((response) => response.json());
   return response;
 }
 
@@ -91,9 +108,10 @@ async function urlDeleteBooking(id) {
       method: 'DELETE',
       headers: {
         Authorization: auth,
+        'Content-Type': 'application/json;charset=utf-8',
       },
     },
-  ).then((r) => r.json());
+  );
   return response;
 }
 
