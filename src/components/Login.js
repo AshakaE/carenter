@@ -9,6 +9,7 @@ import carHome from '../assets/img/carHome.png';
 
 const Login = () => {
   const history = useHistory(); //eslint-disable-line
+  const [error, setError] = React.useState('');
   const [username, setUsername] = React.useState('');
   const [fpassword, setFpassword] = React.useState('');
   const [cpassword, setCpassword] = React.useState('default');
@@ -38,7 +39,7 @@ const Login = () => {
         history.push('/bookings');
       }
       if (response.message) {
-        return response.message;
+        setError(response.message);
       }
     } else {
       response = await register({ username, fpassword, cpassword });
@@ -52,6 +53,7 @@ const Login = () => {
         <img src={carHome} alt="car" className={styles.img} />
         <div className={styles.container}>
           <div className={styles.items}>
+            {error && (<p className={logpage.error}>{error}</p>)}
             <h2 className={logpage.header}>
               {isMember ? 'Sign In' : 'Register'}
             </h2>

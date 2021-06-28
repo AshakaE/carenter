@@ -21,3 +21,7 @@
 .btn {
   @apply py-1 px-4 w-[300px] mt-3 text-white text-center font-normal text-xl rounded-lg focus:outline-none cursor-pointer uppercase bg-pLight hover:bg-pDark font-medium duration-100;
 }
+
+.error {
+  @apply text-xl text-red-500  bg-black p-3 mb-2 font-medium rounded-lg bg-opacity-20;
+}
