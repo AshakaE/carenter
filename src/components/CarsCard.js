@@ -40,7 +40,7 @@ const CarsCard = (props) => {
             <img src={imageUrl} alt={name} />
           </div>
           <button type="button" onClick={handleValues} className={gallery.btn}>
-            place booking
+            {isMember ? 'Place Booking ' : 'Cancel booking'}
           </button>
           {!isMember && <BookingsForm id={id} />}
         </div>
