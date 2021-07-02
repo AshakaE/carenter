@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CarsCard renders correctly 1`] = `
+<div
+  className="cardI"
+>
+  <div
+    className="cardBox"
+  >
+    <div
+      className="cardText"
+    >
+      <p>
+        Name: 
+      </p>
+      <p>
+        test
+      </p>
+    </div>
+    <div
+      className="cardText"
+    >
+      <p>
+        model: 
+      </p>
+      <p>
+        test
+      </p>
+    </div>
+    <div
+      className="cardText"
+    >
+      <p>
+        year: 
+      </p>
+      <p>
+        2021
+      </p>
+    </div>
+    <div>
+      <img
+        alt="test"
+        src="test"
+      />
+    </div>
+    <button
+      className="btn"
+      onClick={[Function]}
+      type="button"
+    >
+      place booking
+    </button>
+  </div>
+</div>
+`;

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookingsCard renders correctly 1`] = `
+Array [
+  <div
+    className="gridBox"
+  >
+    <div>
+      test
+    </div>
+    <div>
+      test
+    </div>
+    <div>
+      test
+    </div>
+    <div>
+      test
+    </div>
+    <div>
+      1000
+    </div>
+    <div>
+      test
+    </div>
+    <div>
+      <button
+        className="btn"
+        onClick={[Function]}
+        type="button"
+      >
+         
+        Update booking
+      </button>
+      <button
+        className="btnDel"
+        onClick={[Function]}
+        type="button"
+      >
+        Delete booking
+      </button>
+    </div>
+  </div>,
+  <div
+    className="form"
+  >
+    <div>
+      
+    </div>
+  </div>,
+]
+`;

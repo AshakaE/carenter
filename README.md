@@ -1,30 +1,48 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# React 
+# Carenter
 
-> 
+> This is my final capstone project at Microverse school for remote software developers, this project establishes my Full-Stack Developer capability through the use of React.js for the frontend(client side) and Ruby on Rails for the backend(server side), it is a website for booking cars.
 
-![](./docs/snapshot.jpeg)
+<p align="center">
+  
+  <img src="src/assets/img/index.jpeg">
+  <img src="src/assets/img/login.jpeg">
+
+</p>
+<p align="center">
+  
+  <img src="src/assets/img/gallery.jpeg">
+  <img src="src/assets/img/bookings.jpeg">
+
+</p>
+<p align="center">
+  
+  <img src="src/assets/img/user.jpeg">
+
+</p>
 
 ## Built With
 
 - React.js
+- Ruby on Rails
 - TailwindCSS
+- PostgreSql 
 
 ## Live Demo
 
-[React]()
+[Carenter](https://carenter.herokuapp.com/)
 
 ## Getting Started
 
-- `git clone git@github.com:AshakaE/`
-- `cd `
+- `git clone git@github.com:AshakaE/carenter.git`
+- `cd carenter`
 - `npm install`
 - `npm start`
 
 ### Prerequisites
 
-Node.js
+- Node.js
 
 ### Run tests
 
@@ -41,7 +59,7 @@ Node.js
 
 Contributions, issues and, feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/AshakaE//issues).
+Feel free to check the [issues page](https://github.com/AshakaE/carenter/issues).
 
 ## Show your support
 
@@ -50,6 +68,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - To Microverse for their `README` template.
+- Car images gotten from [mad4wheels](https://www.mad4wheels.com/)
 
 ## 📝 License
 

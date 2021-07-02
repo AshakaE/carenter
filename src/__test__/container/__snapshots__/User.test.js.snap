@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User renders correctly 1`] = `
+<div>
+  <div>
+    <img
+      alt="car"
+      className="img"
+      src="carUser2.png"
+    />
+    <div
+      className="container"
+    >
+      <div
+        className="items"
+      >
+        <div
+          className="header"
+        >
+          
+        </div>
+        <button
+          className="btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Update login information
+        </button>
+        <button
+          className="btnDel"
+          onClick={[Function]}
+          type="button"
+        >
+          Delete account
+        </button>
+        <div
+          className="links"
+        >
+          <div
+            className="link"
+          >
+            <a
+              href="/cars"
+              onClick={[Function]}
+            >
+              Cars gallery
+            </a>
+          </div>
+          <div
+            className="link"
+          >
+            <a
+              href="/bookings"
+              onClick={[Function]}
+            >
+              My Bookings
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

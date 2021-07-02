@@ -1,0 +1,43 @@
+.container {
+  @apply flex flex-col bg-white m-auto;
+}
+
+.header {
+  @apply flex py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-5xl text-gray-800 mt-10 mb-5 font-head;
+}
+
+.card {
+  @apply flex overflow-x-scroll pb-10 overscroll-none;
+}
+
+.cardInner {
+  @apply flex flex-nowrap lg:ml-40 md:ml-20 ml-10 mb-24;
+}
+
+.cardI {
+  @apply inline-block px-3;
+}
+
+.cardBox {
+  @apply w-[450px] overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out;
+}
+
+.cardText {
+  @apply flex px-2 font-head text-gray-700;
+}
+
+.btn {
+  @apply py-1 px-4 w-full mt-1 text-white text-center font-normal text-xl rounded-lg focus:outline-none cursor-pointer uppercase bg-pLight hover:bg-pDark font-medium duration-100;
+}
+
+.links {
+  @apply flex w-4/12 ml-[4%] justify-around pb-20 font-head text-sLight text-xl;
+}
+
+.link {
+  @apply hover:text-sDark underline;
+}
+
+.loading {
+  @apply flex justify-center w-full pt-28;
+}
