@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../assets/css/home.module.css';
-import carIndex from '../assets/img/carIndex.png';
 
 const Root = () => (
   <>
-    <div>
-      <img src={carIndex} alt="car" className={styles.img} />
+    <div className={styles.img}>
       <div className={styles.container}>
         <div className={styles.items}>
           <div className={styles.header}>

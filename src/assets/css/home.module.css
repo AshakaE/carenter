@@ -11,7 +11,9 @@
 }
 
 .img {
-  @apply absolute z-[-10] object-cover max-h-screen w-full overflow-hidden;
+  @apply bg-cover h-[100vh] bg-center bg-fixed bg-no-repeat;
+
+  background-image: url(../img/carIndex.png);
 }
 
 .btn {
