@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom';
 import { login, register } from '../assets/getAuth';
 import styles from '../assets/css/home.module.css';
 import logpage from '../assets/css/login.module.css';
-import carHome from '../assets/img/carHome.png';
 
 const Login = () => {
   const history = useHistory(); //eslint-disable-line
@@ -49,8 +48,7 @@ const Login = () => {
 
   return (
     <>
-      <div>
-        <img src={carHome} alt="car" className={styles.img} />
+      <div className={logpage.img}>
         <div className={styles.container}>
           <div className={styles.items}>
             {error && (<p className={logpage.error}>{error}</p>)}

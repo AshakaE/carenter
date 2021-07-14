@@ -14,6 +14,12 @@
   @apply text-white font-medium;
 }
 
+.img {
+  @apply bg-cover h-[100vh] bg-center bg-fixed bg-no-repeat;
+
+  background-image: url(../img/carHome.png);
+}
+
 .inputType {
   @apply focus:outline-none outline-none ml-3 mt-3;
 }
