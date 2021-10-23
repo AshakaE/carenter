@@ -2,7 +2,7 @@
 
 # Carenter
 
-> This is my final capstone project at Microverse school for remote software developers, this project establishes my Full-Stack Developer capability through the use of React.js for the frontend(client side) and Ruby on Rails for the backend(server side), it is a website for booking cars.
+> This is my final capstone project at Microverse school for remote software developers, this project establishes my Full stack developer capability through the use of React for the front end(client side) and Ruby on Rails for the back end(server side), it is a website for booking cars.
 
 <p align="center">
   
